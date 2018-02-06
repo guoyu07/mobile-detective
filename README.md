@@ -1,6 +1,12 @@
 # mobile-detective
 手机号码有效性校验
 
+## 目录结构
+
+- MobileDetective.php      PHP 版本手机号校验组件
+- MobileDetective.js       ES6 版本手机号校验组件
+- TestMobileDetective.php  PHP 版本测试
+- TestMobileDetective.html ES6 版本测试
 
 ## 使用
 
