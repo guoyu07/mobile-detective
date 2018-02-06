@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>手机号有效性校验测试</title>
+	</head>
+	<body>
+		<h1>执行结果</h1>
+
+		<div>
+			<ul  class="wrapper"></ul>
+		</div>	
+	</body>
+
+	<script src="MobileDetective.js"></script>
+	<script>
+		let mobiles = ['13411111111', '13511111111', '13611111111', '13711111111', '13811111111', '13911111111', '15011111111', '15111111111', '15211111111', '15711111111', '15811111111', '15911111111', '18211111111', '18311111111', '18411111111', '18711111111', '18811111111', '15177777777', '17811111111', '19811111111', '13011111111', '13111111111', '13211111111', '15511111111', '15611111111', '16611111111', '17511111111', '17611111111', '18611111111', '18511111111', '18611111111', '18911111111', '18111111111', '18011111111', '17711111111', '15311111111', '13311111111', '18901111111', '13301111111', '17311111111', '19911111111']
+
+		let log = console.log.bind(console)
+
+		function addElmt(el, data)
+		{
+			let li = document.createElement("li");
+			
+			if (data[1]) {
+				li.innerHTML = `'${data[0]}' 有效性: <font color="green">${data[1]}</font>`;
+			} else {
+				li.innerHTML = `'${data[0]}' 有效性: <font color="red">${data[1]}</font>`;				
+			}
+
+			el.appendChild(li)
+		}
+
+		let wrapper = document.querySelector('.wrapper');
+
+		for (mobile of mobiles) {
+			let isMobile = (new MobileDetective(mobile)).detective()
+			let data = [mobile, isMobile]
+			addElmt(wrapper, data)
+			// log(isMobile)
+		}
+	</script>
+</html>
